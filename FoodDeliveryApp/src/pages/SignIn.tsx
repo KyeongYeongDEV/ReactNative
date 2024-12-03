@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import {
   Alert,
   Pressable,
@@ -7,21 +7,43 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import {NativeStackScreenProps} from "@react-navigation/native-stack";
+import {RootStackParamList} from "../../App.tsx";
 
-function SignIn() {
+type SignInScreenProps = NativeStackScreenProps<RootStackParamList, 'SignIn'>;
+
+
+function SignIn(navigation : SignInScreenProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const emailRef = useRef<TextInput | null>(null);
+  const passwordRef = useRef<TextInput | null>(null);
 
-  const onChangeEamil = useCallback(text => {
-    setEmail(text);
+  const onChangeEmail = useCallback((text: React.SetStateAction<string>) => {
+    setEmail(text || '');
   }, []);
-  const onChangePassward = useCallback(text => {
-    setPassword(text);
+  const onChangePassward = useCallback((text: React.SetStateAction<string>) => {
+    setPassword(text || '');
   }, []);
 
   const onSubmit = useCallback(() => {
-    Alert.alert('알림', '안녕~');
+    const trimmedEmail = email?.trim(); // 이메일 값 안전 검사
+    const trimmedPassword = password?.trim();
+
+    if (!trimmedEmail) {
+      return Alert.alert('알림', '이메일을 입력해주세요');
+    }
+    if (!trimmedPassword) {
+      return Alert.alert('알림', '비밀번호를 입력해주세요');
+    }
+    Alert.alert('알림', '로그인 되었습니다');
+
   }, []);
+
+  const toSignUP = useCallback(() => {
+    navigation.navigate('SignUp');
+  }, [navigation]);
+
   const canGoNext = email && password;
 
   return (
@@ -31,7 +53,19 @@ function SignIn() {
         <TextInput
           style={styles.textInput}
           placeholder="이메일을 입력해주세요."
-          onChangeText={onChangeEamil}
+          value={email}
+          onChangeText={onChangeEmail}
+          importantForAutofill="yes"
+          autoComplete="email"
+          textContentType = "emailAddress"
+          keyboardType="email-address"
+          returnKeyType="next"
+          onSubmitEditing={() => {
+            passwordRef.current?.focus();
+          }}
+          blurOnSubmit={false}
+          ref={emailRef}
+          clearButtonMode="while-editing"
         />
       </View>
       <View>
@@ -39,7 +73,16 @@ function SignIn() {
         <TextInput
           style={styles.textInput}
           placeholder="비밀번호를 입력해주세요."
+          value={password}
           onChangeText={onChangePassward}
+          secureTextEntry={true}
+          importantForAutofill="yes"
+          autoComplete="password"
+          textContentType = "password"
+          keyboardType="number-pad"
+          ref={passwordRef}
+          onSubmitEditing={onSubmit}
+          clearButtonMode="while-editing"
         />
       </View>
       <View style={styles.buttonZone}>
@@ -53,7 +96,7 @@ function SignIn() {
           disabled={!canGoNext}>
           <Text style={styles.loginButtonText}>로그인</Text>
         </Pressable>
-        <Pressable onPress={onSubmit} style={styles.loginButton}>
+        <Pressable onPress={toSignUP} style={styles.loginButton}>
           <Text>회원가입하기</Text>
         </Pressable>
       </View>
