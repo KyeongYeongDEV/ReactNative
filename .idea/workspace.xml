@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="074b48c8-6cb0-4380-95da-d7e3f3baf14e" name="Changes" comment="" />
+    <list default="true" id="074b48c8-6cb0-4380-95da-d7e3f3baf14e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/src/components/DismissKeyboardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/src/components/DismissKeyboardView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/src/pages/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/src/pages/SignUp.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,12 +42,13 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/ckyeong/Desktop/ReactNative",
+    "last_opened_file_path": "/Users/ckyeong/Downloads/ReactNative",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/ckyeong/Downloads/ReactNative/FoodDeliveryApp/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -60,6 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732983089810</updated>
       <workItem from="1733194183850" duration="640000" />
+      <workItem from="1734708205108" duration="4283000" />
     </task>
     <servers />
   </component>
