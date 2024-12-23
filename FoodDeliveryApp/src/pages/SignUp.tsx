@@ -1,5 +1,6 @@
 import React, {useCallback, useRef, useState} from 'react';
 import {
+    ActivityIndicator,
     Alert,
     Platform,
     Pressable,
@@ -11,11 +12,12 @@ import {
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
 import DismissKeyboardView from '../components/DismissKeyboardView';
-import axios from "axios";
+import axios, {AxiosError} from "axios";
 
 type SignUpScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 
 function SignUp({navigation}: SignUpScreenProps) {
+    const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -58,11 +60,21 @@ function SignUp({navigation}: SignUpScreenProps) {
         console.log(email, name, password);
 
         try {
-            const response = await axios.post('/user', {email, name, password});
+            setLoading(true);
+            const response = await axios.post('/user', {email, name, password}, {
+                headers : {
+                    token : '고유한 값',
+                } // 여러 값의 안정장치가 있는 것이 좋다
+            });
+            setLoading(false);
         } catch (error) {
-            console.error(error)
+            const errorResponse = (error as AxiosError).response;
+            console.error();
+            if (errorResponse) {
+                Alert.alert('알림', errorResponse.data.message);
+            }
         } finally {
-
+            setLoading(false); // 실패하든 성공하든 로딩은 false가 되어야 함
         }
 
         Alert.alert('알림', '회원가입 되었습니다.');
@@ -127,9 +139,12 @@ function SignUp({navigation}: SignUpScreenProps) {
                             ? StyleSheet.compose(styles.loginButton, styles.loginButtonActive)
                             : styles.loginButton
                     }
-                    disabled={!canGoNext}
+                    disabled={!canGoNext || loading} // loading 중에는 버튼을 쓰지 못하게 한다. 로그인 버튼을 광클하는 경우 그 수만큼 회원가입이 진행이 됨
                     onPress={onSubmit}>
-                    <Text style={styles.loginButtonText}>회원가입</Text>
+
+                    {loading ? (<ActivityIndicator color='white'/>) : (<Text style={styles.loginButtonText}>회원가입</Text>)}
+
+
                 </Pressable>
             </View>
         </DismissKeyboardView>
