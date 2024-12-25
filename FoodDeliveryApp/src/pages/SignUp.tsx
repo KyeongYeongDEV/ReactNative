@@ -13,6 +13,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
 import DismissKeyboardView from '../components/DismissKeyboardView';
 import axios, {AxiosError} from "axios";
+import Config from "react-native-config";
 
 type SignUpScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 
@@ -61,7 +62,7 @@ function SignUp({navigation}: SignUpScreenProps) {
 
         try {
             setLoading(true);
-            const response = await axios.post('/user', {email, name, password}, {
+            const response = await axios.post(`${Config.API_URL}/user`, {email, name, password}, {
                 headers : {
                     token : '고유한 값',
                 } // 여러 값의 안정장치가 있는 것이 좋다
@@ -77,8 +78,8 @@ function SignUp({navigation}: SignUpScreenProps) {
             setLoading(false); // 실패하든 성공하든 로딩은 false가 되어야 함
         }
 
-        Alert.alert('알림', '회원가입 되었습니다.');
-    }, [email, name, password]);
+        navigation.navigate('SignIn');
+    }, [navigation, email, name, password]);
 
     const canGoNext = email && name && password;
     return (

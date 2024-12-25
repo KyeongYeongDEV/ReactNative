@@ -18,6 +18,8 @@
     "joi": "^17.13.3",
     "react": "18.3.1",
     "react-native": "0.76.3",
+    "react-native-config": "^1.5.3",
+    "react-native-encrypted-storage": "^4.0.3",
     "react-native-gesture-handler": "^2.21.2",
     "react-native-keyboard-aware-scrollview": "^2.1.0",
     "react-native-reanimated": "^3.16.3",

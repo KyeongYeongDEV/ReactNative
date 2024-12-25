@@ -4,7 +4,7 @@ import UserSlice from '../slices/user';
 
 
 const rootReducer = combineReducers({
-    User : UserSlice.reducer,
+    user : UserSlice.reducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
