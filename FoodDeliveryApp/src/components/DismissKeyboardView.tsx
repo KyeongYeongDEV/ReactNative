@@ -12,6 +12,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
 
 //children이 있는 부분은 React.FC를 사용하는 것을 추천한다.
 // 이것을 사용하지 않는 방법으로는 function으로 하는 방법이 있다.
+// @ts-ignore
 const DismissKeyboardView : React.FC = ({children, ...props}) => (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <KeyboardAwareScrollView {...props} behavior={Platform.OS === 'android' ? 'position' : 'padding'}
