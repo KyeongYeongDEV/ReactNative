@@ -17,6 +17,18 @@ import {RootStackParamList} from '../../AppInner';
 import {useAppDispatch} from '../store';
 import userSlice from '../slices/user';
 
+/*
+import EncryptedStorage from 'react-native-encrypted-storage';
+await EncryptedStorage.setItem('키', '값');
+await EncryptedStorage.removeItem('키');
+const 값 = await EncryptedStorage.getItem('키');
+
+redux에 넣은 데이터는 앱을 끄면 날아감 - 어떻게 보면 보안에 좋음
+앱을 꺼도 저장되어야 하고 민감한 값은 encrypted-storage에
+개발 환경별로 달라지는 값은 react-native-config에 저장하면 좋음(암호화 안 됨)
+그 외에 유지만 되면 데이터들은 async-storage에 저장(npm install @react-native-async-storage/async-storage)
+ */
+
 type SignInScreenProps = NativeStackScreenProps<RootStackParamList, 'SignIn'>;
 
 function SignIn({navigation}: SignInScreenProps) {
