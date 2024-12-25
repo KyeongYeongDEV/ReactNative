@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
 
 import {Provider, useSelector} from 'react-redux';
 import store from "./src/store";
@@ -16,7 +17,9 @@ function App() {
 
     return (
         <Provider store={store}>
-           <AppInner />
+            <NavigationContainer>
+                <AppInner />
+            </NavigationContainer>
         </Provider>
     );
 }
