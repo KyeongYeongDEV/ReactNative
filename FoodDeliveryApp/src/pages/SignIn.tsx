@@ -67,8 +67,8 @@ function SignIn({navigation}: SignInScreenProps) {
           userSlice.actions.setUser({
             name: response.data.data.name,
             email: response.data.data.email,
-            accessToken: response.data.data.accessToken,
-            refreshToken: response.data.data.refreshToken,
+            accessToken: response.data.data.accessToken, // 유효기간 10분, 5분, 1시간 / 메모리에 저장 / 서로 다른 곳에 저장을 해줌으로써 혹시 모를 사태에 조금이라도 대비
+            refreshToken: response.data.data.refreshToken, // 유효기간 1일, 30일, 얘는 해킹 당하면 큰일난다. // 로컬 스토리지에 저장
           }),
       );
       await EncryptedStorage.setItem(
