@@ -18,7 +18,7 @@ function Settings() {
                 {},
                 {
                     headers: {
-                        Authorization: `Bearer ${accessToken}`, // 로그인이 된 사람만이 로그아웃이 가능하다 -> 로그인을 해야 accessTOken을 발급받을 수 있기 때문
+                        authorization: `Bearer ${accessToken}`, // 로그인이 된 사람만이 로그아웃이 가능하다 -> 로그인을 해야 accessTOken을 발급받을 수 있기 때문
                     },
                 },
             );
