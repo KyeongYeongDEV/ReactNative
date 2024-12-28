@@ -97,8 +97,11 @@ function AppInner() {
         }
     }, [isLoggedIn, disconnect]);
 
+
+    // axios.interceptors 사용
     useEffect(() => {
         axios.interceptors.response.use(
+            //성공할 경우 = 그냥 통과
             response => {
                 return response;
             },
@@ -107,7 +110,7 @@ function AppInner() {
                     config,
                     response: {status},
                 } = error;
-                if (status === 419) {
+                if (status === 419) { // 토큰이 만료가 됐을 경우
                     if (error.response.data.code === 'expired') {
                         const originalRequest = config;
                         const refreshToken = await EncryptedStorage.getItem('refreshToken');

@@ -18,7 +18,7 @@ function EachOrder({item}: Props) {
     const dispatch = useAppDispatch();
     const accessToken = useSelector((state: RootState) => state.user.accessToken);
     const [detail, showDetail] = useState(false);
-
+ // 반복 대상이 되는 친구들을 무조건 component를 분리해라
     const onAccept = useCallback(async () => {
         if (!accessToken) {
             return;
