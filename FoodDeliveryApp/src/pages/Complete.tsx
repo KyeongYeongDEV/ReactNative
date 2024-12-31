@@ -35,15 +35,16 @@ function Complete() {
 
   const onResponse = useCallback(async response => {
     console.log(response.width, response.height, response.exif);
-    setPreview({uri: `data:${response.mime};base64,${response.data}`});
+    setPreview({uri: `data:${response.mime};base64,${response.data}`}); //이미지를 base64 형태(텍스트)로 변환을 한다
     const orientation = (response.exif as any)?.Orientation;
     console.log('orientation', orientation);
-    return ImageResizer.createResizedImage(
-      response.path,
+    return ImageResizer.createResizedImage( // 원본 이미지는 파일의 크기가 크다 = DB에 용량을 많이 잡음
+        //image resizer를 사용하여 크기를 줄여준다
+      response.path, //파일의 경로, file://안드로이드 경로
       600,
       600,
       response.mime.includes('jpeg') ? 'JPEG' : 'PNG',
-      100,
+      100, //quality 낮을수록 크기는 줄어듦
       0,
     ).then(r => {
       console.log(r.uri, r.name);
@@ -106,7 +107,9 @@ function Complete() {
       }
     }
   }, [dispatch, navigation, image, orderId, accessToken]);
-
+// preview 미리보기
+// buttonWrapper 촬영 선택
+//   Pressable 완료 처리
   return (
     <View>
       <View style={styles.orderId}>
