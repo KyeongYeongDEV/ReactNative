@@ -20,7 +20,7 @@ public class MainApplication extends Application implements ReactApplication {
       new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
-          return BuildConfig.DEBUG;
+          return BuildConfig.DEBUG; // 만약에 여기에 빨간줄이 뜬다면 어떤 것이든 import하지 말고 그냥 냅둬라.. 나중에 에러가 난다.
         }
 
         @Override
