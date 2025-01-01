@@ -78,6 +78,11 @@ function Settings() {
     }
   }, [accessToken, dispatch]);
 
+  // FastImage
+  // 이미지를 많이 랜더링해야 할 때 사용한다.
+  // 기본 이미지의 업그레이드 판이라 생각하면 됨
+  // 얘가 할 리로딩을 막는다.
+
   const renderItem = useCallback(({item}: {item: Order}) => {
     return (
       <FastImage

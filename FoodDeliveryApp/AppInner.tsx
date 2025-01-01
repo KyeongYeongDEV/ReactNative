@@ -194,6 +194,9 @@ function AppInner() {
             <FontAwesome name="gear" size={20} style={{color}} />
           ),
           tabBarActiveTintColor: 'blue',
+        // 리액트는 한 번 마운트 되면 걔를 그냥 계속 가지고 있으려고한다.
+        // 그렇기 때문에 계속 업데이트가 일어나야 하는 부분에서는 최신화가 되질 않는다.
+        // unmountOnBlur 를 통해 이 탭에서 빠져나갔을 때 unmount를 시켜준다.
           unmountOnBlur: true,
         }}
       />
