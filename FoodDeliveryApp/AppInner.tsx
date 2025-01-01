@@ -20,8 +20,13 @@ import Config from 'react-native-config';
 import orderSlice from './src/slices/order';
 import usePermissions from './src/hooks/usePermissions';
 import SplashScreen from 'react-native-splash-screen';
+
+// 사용하지 않는 아이콘은 저장해 놓은 거 지워주는 게 좋다
+// 여러 모듈에서 쇼핑하지 말고 하나만 정해서 해주는 것이 어플의 용량을 줄이는 데 도움이 된다.
+// 앱에서 용량을 많이 차지하는 부분은 폰트, 이미지, 비디오 같은 것이다.
+// 코드가 암만 길어봐야 용량 차지를 많이 하지는 않는다.
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';//
 
 export type LoggedInParamList = {
   Orders: undefined;
