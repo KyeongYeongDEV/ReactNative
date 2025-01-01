@@ -33,21 +33,17 @@ function Complete() {
   const [preview, setPreview] = useState<{uri: string}>();
   const accessToken = useSelector((state: RootState) => state.user.accessToken);
 
-  // { uri : '경로', filename : '파일', type : '확장자' }
-  // multipart/form-data 통해서 업로드
-
   const onResponse = useCallback(async response => {
     console.log(response.width, response.height, response.exif);
-    setPreview({uri: `data:${response.mime};base64,${response.data}`}); //이미지를 base64 형태(텍스트)로 변환을 한다
+    setPreview({uri: `data:${response.mime};base64,${response.data}`});
     const orientation = (response.exif as any)?.Orientation;
     console.log('orientation', orientation);
-    return ImageResizer.createResizedImage( // 원본 이미지는 파일의 크기가 크다 = DB에 용량을 많이 잡음
-        //image resizer를 사용하여 크기를 줄여준다
-      response.path, //파일의 경로, file://안드로이드 경로
+    return ImageResizer.createResizedImage(
+      response.path,
       600,
       600,
       response.mime.includes('jpeg') ? 'JPEG' : 'PNG',
-      100, //quality 낮을수록 크기는 줄어듦
+      100,
       0,
     ).then(r => {
       console.log(r.uri, r.name);
@@ -63,7 +59,7 @@ function Complete() {
   const onTakePhoto = useCallback(() => {
     return ImagePicker.openCamera({
       includeBase64: true,
-      includeExif: true, // 이미지를 가로세로 전후면 카메라 등 사진의 아랫부분이 항상 바뀌는데 그것을 고정해준다.
+      includeExif: true,
       saveToPhotos: true,
     })
       .then(onResponse)
@@ -100,7 +96,7 @@ function Complete() {
         },
       });
       Alert.alert('알림', '완료처리 되었습니다.');
-      navigation.goBack(); // 사진을 이미 올렸는데 사진을 다시 찍거나 선택할 필요가 없으므로 goBack을 해주고 다음으로 이동한다.
+      navigation.goBack();
       navigation.navigate('Settings');
       dispatch(orderSlice.actions.rejectOrder(orderId));
     } catch (error) {
@@ -110,13 +106,11 @@ function Complete() {
       }
     }
   }, [dispatch, navigation, image, orderId, accessToken]);
-// preview 미리보기
-// buttonWrapper 촬영 선택
-//   Pressable 완료 처리
+
   return (
     <View>
       <View style={styles.orderId}>
-        <Text>주문번호: {orderId}</Text>
+        <Text style={{color: 'black'}}>주문번호: {orderId}</Text>
       </View>
       <View style={styles.preview}>
         {preview && <Image style={styles.previewImage} source={preview} />}
@@ -155,7 +149,7 @@ const styles = StyleSheet.create({
   },
   previewImage: {
     height: Dimensions.get('window').height / 3,
-    resizeMode: 'contain', // contain == 가로세로 영역에 딱 맞게 이미지를 표시해준다.
+    resizeMode: 'contain',
   },
   buttonWrapper: {flexDirection: 'row', justifyContent: 'center'},
   button: {
