@@ -51,7 +51,7 @@ function AppInner() {
       try {
         const token = await EncryptedStorage.getItem('refreshToken');
         if (!token) {
-          SplashScreen.hide();
+          SplashScreen.hide(); // hide를 해주지 않으면 앱은 돌아가고 있지만 스크린에 가려져서 사람들은 어플이 고장이 난 줄 안다.
           return;
         }
         const response = await axios.post(

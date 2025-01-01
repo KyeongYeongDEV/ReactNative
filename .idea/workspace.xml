@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="074b48c8-6cb0-4380-95da-d7e3f3baf14e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/src/components/DismissKeyboardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/src/components/DismissKeyboardView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/src/pages/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/src/pages/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FoodDeliveryApp/AppInner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FoodDeliveryApp/AppInner.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +21,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/FoodDeliveryApp/src/components/EachOrder.tsx" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2pZoj1Wx0ZT74qAtYctMwil5R4Y" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,9 +42,11 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "bazel.project.detector.is.bazel.project": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
+    "jsx.switch.disabled": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/ckyeong/Downloads/ReactNative",
     "node.js.detected.package.eslint": "true",
@@ -52,6 +58,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FoodDeliveryApp/android/app/src/main/java/com/cgang" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,11 +79,25 @@
       <option name="presentableId" value="Default" />
       <updated>1732983089810</updated>
       <workItem from="1733194183850" duration="640000" />
-      <workItem from="1734708205108" duration="4283000" />
+      <workItem from="1734708205108" duration="43337000" />
+      <workItem from="1735368947824" duration="8458000" />
+      <workItem from="1735462496513" duration="16000" />
+      <workItem from="1735462514601" duration="11628000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
