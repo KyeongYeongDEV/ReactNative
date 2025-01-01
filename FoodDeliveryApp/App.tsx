@@ -22,6 +22,9 @@ PushNotification.configure({
   onNotification: function (notification: any) {
     console.log('NOTIFICATION:', notification);
     if (notification.channelId === 'riders') {
+      // 알림이 떠서 누르면 어플에 자동으로 들어가진다
+      // 하지만 배달 어플의 경우 그 알림이 어떤 알림인지 보고 싶다는 사람들이 있다고 한다.
+      // 그래서 어플에 들어가지면 어떤 알림이였는지 띄워주는 코드
       // if (notification.message || notification.data.message) {
       //   store.dispatch(
       //     userSlice.actions.showPushPopup(
@@ -58,7 +61,7 @@ PushNotification.configure({
 
   // Should the initial notification be popped automatically
   // default: true
-  popInitialNotification: true,
+  popInitialNotification: true, // 푸시 알림 권한 요청
 
   /**
    * (optional) default: true
@@ -69,14 +72,14 @@ PushNotification.configure({
    */
   requestPermissions: true,
 });
-PushNotification.createChannel(
+PushNotification.createChannel( // 이런 채널은 여러 개를 만들어 놓으면 좋다 그때 필요한 걸 사용하면 된다.
   {
     channelId: 'riders', // (required)
     channelName: '앱 전반', // (required)
     channelDescription: '앱 실행하는 알림', // (optional) default: undefined.
-    soundName: 'default', // (optional) See `soundName` parameter of `localNotification` function
+    soundName: 'default', // (optional) See `soundName` parameter of `localNotification` function //소리여부
     importance: 4, // (optional) default: 4. Int value of the Android notification importance
-    vibrate: true, // (optional) default: true. Creates the default vibration patten if true.
+    vibrate: true, // (optional) default: true. Creates the default vibration patten if true. //진동 여부
   },
   (created: boolean) =>
     console.log(`createChannel riders returned '${created}'`), // (optional) callback returns whether the channel was created, false means it already existed.

@@ -146,7 +146,7 @@ function AppInner() {
   useEffect(() => {
     async function getToken() {
       try {
-        if (!messaging().isDeviceRegisteredForRemoteMessages) {
+        if (!messaging().isDeviceRegisteredForRemoteMessages) { // 기기 등록이 안 되어 있다면 등록을 한다.
           await messaging().registerDeviceForRemoteMessages();
         }
         const token = await messaging().getToken();
